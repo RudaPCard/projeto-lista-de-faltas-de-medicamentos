@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista de Faltas</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="impres">
+            <img src="./assets/pdf-removebg-preview.png">
+            <button id="generate-pdf">Gerar PDF do Relatório</button>
+        </div>
+        <div class="caixa1">
+            <h1>Faltas</h1>
+            <input type="text" id="textoInput" placeholder="Digite o nome do medicamento">
+            <button onclick="enviarTexto()" class="botao-enviar">Enviar</button>
+            <button onclick="limparCaixaArmazenamento('colunaPalavras')" id="botao-limpar">Limpar Relatório</button>
+            <div id="colunaPalavras"></div>
+            <ul id="suggestionsList" class="suggestions"></ul>
+        </div>
+    </div>
+</body>
+</html>

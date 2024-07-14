@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    background-color: black; 
+}
+
+.container {
+    border: 1px solid white;
+    border-radius: 5px;   
+    height: auto;    
+    background-color: rgb(199, 179, 179);    
+    margin-top: 150px;
+    margin-left: 400px;    
+    display: flex;
+    flex-direction: column; /* Ou row, dependendo do layout desejado */
+    width: 43%; /* Ajusta a largura ao tamanho do contêiner pai */
+    padding: 10px; /* Adiciona espaçamento interno */
+
+    & .impres {
+        
+        height: 20px;
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+
+        & img {
+            width: 60px;
+            height: 40px;
+            margin-top: 1px;
+        }
+
+        #generate-pdf {
+            width: 200px;
+            height: 30px;
+           
+        }
+        
+        #generate-pdf:hover {
+            background-color: red;
+            color: white;
+        }
+        
+       
+    }
+    
+}
+
+.h1 {
+    margin-left: 20px;
+}
+
+.caixa1 {
+    width: 100%;
+    display: block;
+    height: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px; 
+}
+
+#textoInput {
+    width: 97%;            
+    margin-bottom: 5px;
+    margin-top: 5px;
+    height: 25px;
+}
+
+.botao-enviar {
+    width: 80px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-bottom: 5px;
+    margin-left: 25%;
+}
+
+.botao-enviar:hover {
+    background-color: red;
+    color: white;
+}
+
+#botao-limpar {
+    width: 150px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+#botao-limpar:hover {
+    background-color: red;
+    color: white;
+}
+
+#colunaPalavras {
+    border: 1px solid white;
+    border: none;
+    width: auto;
+    font-size: 15px;
+    height: auto;
+    background-color: white;   
+    color: black;
+    counter-reset: item;  
+    margin-bottom: 30px;  
+    margin-right: 18px; 
+    
+}
+
+#colunaPalavras p {
+    counter-increment: item;
+}
+
+#colunaPalavras p::before {
+    content: counter(item) ". ";
+}
+
+
+
+
+
+.impres #botao {
+    font-size: 8px;
+    margin-top: 5px;
+    width: 70px;
+    height: 20px;
+    border-radius: 5px;
+    cursor: pointer;        
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%; /* Largura total em telas menores */
+        margin-left: 0; /* Remove margem esquerda */
+    }
+
+    #textoInput {
+        width: 100%; /* Largura total em telas menores */
+    }
+
+    .botao-enviar {
+        width: 100%; /* Largura total do botão em telas menores */
+        margin-left: 0; /* Remove margem esquerda */
+    }
+}
+
+/* Estilize a div de sugestões */
+.suggestions {
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    background: #fff;
+    cursor: pointer;
+    margin: auto;
+    
+    
+}
+
+.suggestion-item {
+    padding: 8px;
+    text-transform: uppercase;
+    
+    
+}
+
+.suggestion-item:hover {
+    background-color: blue;
+}
+
+.highlight {
+    background-color: blue; /* Cor de fundo quando o item está selecionado */
+    color: white; /* Cor do texto quando o item está selecionado */
+}
+
+.item-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.item-container p {
+    flex-grow: 1;
+}
+
+.encomenda-checkbox {
+    margin-right: 10px;
+}
+
+.item-container button {
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.item-container button:hover {
+    background-color: darkred;
+}
+
+.quantidade-input {
+    width: 50px;
+    margin-left: 5px;
+}
+
+.linha {
+    display: inline-block;
+    width: 70%; /* Ajuste o tamanho conforme necessário */
+    border-bottom: 1px solid black;
+    margin: 0 5px; /* Ajuste o espaçamento conforme necessário */
+    vertical-align: middle;
+}
+
+.quantidade-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
