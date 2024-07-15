@@ -6,67 +6,59 @@
 
 body {
     width: 100%;
-    height: auto;
-    background-color: black; 
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: flex-start; /* Alinha ao topo */
+    padding-top: 150px; /* Ajusta a distância do topo */
 }
 
 .container {
     border: 1px solid white;
-    border-radius: 5px;   
-    height: auto;    
-    background-color: rgb(199, 179, 179);    
-    margin-top: 150px;
-    margin-left: 400px;    
-    display: flex;
-    flex-direction: column; /* Ou row, dependendo do layout desejado */
+    border-radius: 5px;
+    height: auto;
+    background-color: rgb(199, 179, 179);
     width: 43%; /* Ajusta a largura ao tamanho do contêiner pai */
     padding: 10px; /* Adiciona espaçamento interno */
+    display: flex;
+    flex-direction: column;
 
-    & .impres {
-        
-        height: 20px;
-        margin-top: 5px;
-        display: flex;
-        align-items: center;
-
-        & img {
-            width: 60px;
-            height: 40px;
-            margin-top: 1px;
-        }
-
-        #generate-pdf {
-            width: 200px;
-            height: 30px;
-           
-        }
-        
-        #generate-pdf:hover {
-            background-color: red;
-            color: white;
-        }
-        
-       
-    }
     
 }
 
-.h1 {
-    margin-left: 20px;
+.impres {
+    height: 20px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.impres img {
+    width: 60px;
+    height: 40px;
+    margin-top: 1px;
+}
+
+#generate-pdf {
+    width: 200px;
+    height: 30px;
+}
+
+#generate-pdf:hover {
+    background-color: red;
+    color: white;
 }
 
 .caixa1 {
     width: 100%;
-    display: block;
-    height: 100%;
-    margin-top: 30px;
     display: flex;
     flex-direction: column;
-    margin-left: 10px; 
+    margin-top: 30px;
 }
 
 #textoInput {
-    width: 97%;            
+    width: 97%;
     margin-bottom: 5px;
     margin-top: 5px;
     height: 25px;
@@ -79,7 +71,7 @@ body {
     border-radius: 5px;
     font-size: 15px;
     margin-bottom: 5px;
-    margin-left: 25%;
+    margin-left: 0; /* Remove margem esquerda */
 }
 
 .botao-enviar:hover {
@@ -108,12 +100,11 @@ body {
     width: auto;
     font-size: 15px;
     height: auto;
-    background-color: white;   
+    background-color: white;
     color: black;
-    counter-reset: item;  
-    margin-bottom: 30px;  
-    margin-right: 18px; 
-    
+    counter-reset: item;
+    margin-bottom: 30px;
+    margin-right: 18px;
 }
 
 #colunaPalavras p {
@@ -124,37 +115,6 @@ body {
     content: counter(item) ". ";
 }
 
-
-
-
-
-.impres #botao {
-    font-size: 8px;
-    margin-top: 5px;
-    width: 70px;
-    height: 20px;
-    border-radius: 5px;
-    cursor: pointer;        
-    font-weight: bold;
-}
-
-@media (max-width: 768px) {
-    .container {
-        width: 100%; /* Largura total em telas menores */
-        margin-left: 0; /* Remove margem esquerda */
-    }
-
-    #textoInput {
-        width: 100%; /* Largura total em telas menores */
-    }
-
-    .botao-enviar {
-        width: 100%; /* Largura total do botão em telas menores */
-        margin-left: 0; /* Remove margem esquerda */
-    }
-}
-
-/* Estilize a div de sugestões */
 .suggestions {
     border: 1px solid #ccc;
     max-height: 150px;
@@ -162,15 +122,11 @@ body {
     background: #fff;
     cursor: pointer;
     margin: auto;
-    
-    
 }
 
 .suggestion-item {
     padding: 8px;
     text-transform: uppercase;
-    
-    
 }
 
 .suggestion-item:hover {
@@ -227,5 +183,33 @@ body {
     display: inline-block;
     vertical-align: middle;
 }
+
+
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%; /* Largura total em telas menores */
+    }
+
+    #textoInput {
+        width: 100%; /* Largura total em telas menores */
+    }
+
+    .botao-enviar {
+        width: 100%; /* Largura total do botão em telas menores */
+        margin-left: 0; /* Remove margem esquerda */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
