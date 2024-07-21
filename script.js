@@ -84,6 +84,7 @@ function enviarTexto() {
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Deletar';
+        deleteButton.className = 'delete-button';
         deleteButton.onclick = function () {
             colunaPalavras.removeChild(div);
         };
@@ -107,8 +108,8 @@ function enviarTexto() {
         quantidadeInput.style.display = 'none';
 
         div.appendChild(p);
+        div.appendChild(encomendaCheckbox); // Alterado para colocar o checkbox antes do input de quantidade
         div.appendChild(quantidadeInput);
-        div.appendChild(encomendaCheckbox);
         div.appendChild(deleteButton);
         colunaPalavras.appendChild(div);
 
@@ -145,21 +146,36 @@ document.getElementById('generate-pdf').addEventListener('click', function () {
     container.style.margin = '20px';
     container.appendChild(title);
 
-    const clonedElement = element.cloneNode(true);
-
-    clonedElement.querySelectorAll('.med-item').forEach(item => {
+    element.querySelectorAll('.med-item').forEach(item => {
         const p = item.querySelector('p').cloneNode(true);
         const quantidade = item.querySelector('input[type="number"]').value;
+
+        const div = document.createElement('div');
+        div.style.display = 'flex';
+        div.style.justifyContent = 'space-between';
+        div.style.alignItems = 'center';
+        div.style.marginBottom = '10px';
+
+        div.appendChild(p);
+        
         if (quantidade) {
-            p.textContent += ` - ${quantidade} caixas`;
+            const quantidadeSpan = document.createElement('span');
+            quantidadeSpan.textContent = `${quantidade} caixas`;
+            quantidadeSpan.style.textAlign = 'right';
+            div.appendChild(quantidadeSpan);
+
+            // Linha abaixo do medicamento e quantidade
+            const line = document.createElement('div');
+            line.style.borderBottom = '1px solid #000';
+            line.style.marginTop = '5px';
+            container.appendChild(div);
+            container.appendChild(line);
+        } else {
+            container.appendChild(div);
         }
-        const line = document.createElement('div');
-        line.appendChild(p);
-        line.style.borderBottom = '1px solid #000';
-        line.style.marginBottom = '10px';
-        container.appendChild(line);
     });
 
+    // Geração do PDF
     html2pdf()
         .from(container)
         .set({
@@ -170,9 +186,5 @@ document.getElementById('generate-pdf').addEventListener('click', function () {
         })
         .save();
 });
-
-
-
-
 
 

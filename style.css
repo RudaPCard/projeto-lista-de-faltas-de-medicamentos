@@ -12,6 +12,11 @@ body {
     justify-content: center; /* Centraliza horizontalmente */
     align-items: flex-start; /* Alinha ao topo */
     padding-top: 150px; /* Ajusta a distância do topo */
+    font-size: 16px;
+    margin: 0;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    margin: auto
 }
 
 .container {
@@ -19,11 +24,21 @@ body {
     border-radius: 5px;
     height: auto;
     background-color: rgb(199, 179, 179);
-    width: 43%; /* Ajusta a largura ao tamanho do contêiner pai */
+    width: 50%; /* Ajusta a largura ao tamanho do contêiner pai */
     padding: 10px; /* Adiciona espaçamento interno */
     display: flex;
     flex-direction: column;
+    position: relative; /* Permite posicionamento absoluto interno */
+    margin-top: 10%;
 
+  
+}
+
+.header-info {
+    position: static;
+    margin-top: 10px;
+    right: 10px;
+    text-align: right;
     
 }
 
@@ -32,6 +47,9 @@ body {
     margin-top: 5px;
     display: flex;
     align-items: center;
+    
+
+   
 }
 
 .impres img {
@@ -41,8 +59,11 @@ body {
 }
 
 #generate-pdf {
-    width: 200px;
+    width: 100%;
+    box-sizing: border-box;
     height: 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
 #generate-pdf:hover {
@@ -58,19 +79,21 @@ body {
 }
 
 #textoInput {
-    width: 97%;
-    margin-bottom: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
     margin-top: 5px;
     height: 25px;
 }
 
 .botao-enviar {
-    width: 80px;
+    width: 100%;
+    box-sizing: border-box;
     height: 25px;
     cursor: pointer;
     border-radius: 5px;
     font-size: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     margin-left: 0; /* Remove margem esquerda */
 }
 
@@ -80,7 +103,8 @@ body {
 }
 
 #botao-limpar {
-    width: 150px;
+    width: 100%;
+    box-sizing: border-box;
     height: 25px;
     cursor: pointer;
     border-radius: 5px;
@@ -122,6 +146,7 @@ body {
     background: #fff;
     cursor: pointer;
     margin: auto;
+    
 }
 
 .suggestion-item {
@@ -184,22 +209,56 @@ body {
     vertical-align: middle;
 }
 
+.pdf-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    position: relative;
+}
 
+.pdf-item span {
+    text-align: right;
+    margin-left: 10px;
+}
+
+.pdf-item + div {
+    border-bottom: 1px solid #000;
+    margin-top: 5px;
+    width: 100%;
+}
 
 @media (max-width: 768px) {
     .container {
-        width: 100%; /* Largura total em telas menores */
+        width: 90%; /* Largura maior em telas pequenas */
+        padding: 15px; /* Adicione mais padding para conforto */
     }
 
     #textoInput {
         width: 100%; /* Largura total em telas menores */
     }
 
-    .botao-enviar {
-        width: 100%; /* Largura total do botão em telas menores */
-        margin-left: 0; /* Remove margem esquerda */
+    .botao-enviar, #botao-limpar, #generate-pdf {
+        width: 100%; /* Largura total dos botões em telas menores */
+        margin-bottom: 10px; /* Adicione espaçamento entre botões */
+    }
+
+    .impres img {
+        width: 50px; /* Reduza o tamanho da imagem em telas pequenas */
+        height: auto; /* Mantenha a proporção da imagem */
+    }
+
+    /* Ajustes adicionais, se necessário */
+
+    body {
+        font-size: 14px; /* Reduz o tamanho da fonte em telas menores */
     }
 }
+
+
+   
+
+
 
 
 
